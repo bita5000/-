@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Mission 1</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div id="todo-list"></div>
+    <script>
+      var data = [
+        {
+          text: "우가우가",
+        },
+        {
+          text: "우가우가우가",
+        },
+      ];
+
+      function TodoList(data) {
+        this.validate = (data) => {
+          if (data === null || data === undefined) {
+            throw new Error("data가 없습니다.");
+          }
+
+          if (!Array.isArray(data)) {
+            throw new Error("data는 배열이어야 합니다");
+          }
+
+          if (
+            data.length > 0 &&
+            !data.every((d) => d.text && typeof d.text === "string")
+          ) {
+            throw new Error("no text or no string");
+          }
+        };
+
+        this.render = () => {
+          const $element = document.querySelector("#todo-list");
+          $element.innerHTML = data
+            .map((item) => `<div>${item.text}</div>`)
+            .join("");
+        };
+
+        this.validate(data);
+        this.render();
+      }
+
+      try {
+        const todoList = new TodoList(data);
+      } catch (e) {
+        alert(e.message);
+      }
+    </script>
+  </body>
+</html>
