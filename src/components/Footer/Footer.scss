@@ -1,0 +1,11 @@
+@import "../../styles/global.scss";
+
+footer {
+    width: 360px;
+
+    background-color: red;
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 0);
+}
