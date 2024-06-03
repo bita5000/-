@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { GenerateSW } = require("workbox-webpack-plugin");
 
 const webpackMode = process.env.NODE_ENV || "development";
 
@@ -61,6 +62,10 @@ module.exports = {
             template: "./public/index.html"
         }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({ filename: `style.css` })
+        new MiniCssExtractPlugin({ filename: `style.css` }),
+        new GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        })
     ]
 };
