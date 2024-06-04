@@ -2,6 +2,7 @@
     "name": "memo",
     "short_name": "memo",
     "description": "테스틥니당",
+    "manifest_version": 2,
     "icons": [
         {
             "src": "icons/icon-64.png",
@@ -21,6 +22,6 @@
     ],
     "start_url": "/",
     "display": "fullscreen",
-    "theme_color": "#B12A34",
+    "theme_color": "#0A63B3",
     "background_color": "#B12A34"
 }
