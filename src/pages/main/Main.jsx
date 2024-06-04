@@ -14,7 +14,9 @@ const Main = () => {
     const [itemList, setItemList] = useState([]);
 
     const getToday = new Date();
-    const today = `${getToday.getFullYear()}년 ${getToday.getMonth()}월 ${getToday.getDate()}일 `;
+    const today = `${getToday.getFullYear()}년 ${
+        getToday.getMonth() + 1
+    }월 ${getToday.getDate()}일 `;
 
     useEffect(() => {
         const savedItemList = localStorage.getItem("item");

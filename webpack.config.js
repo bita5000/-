@@ -2,9 +2,15 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { GenerateSW } = require("workbox-webpack-plugin");
+// const { GenerateSW } = require("workbox-webpack-plugin");
+// const manifest = require("./public/manifest.json");
 
 const webpackMode = process.env.NODE_ENV || "development";
+// const pwaPlugin = new WebpackPwaManifest(manifest);
+// const workboxPlugin = new InjectManifest({
+//     swSrc: "./src/sw.js",
+//     swDest: "sw.js"
+// });
 
 module.exports = {
     mode: webpackMode,
@@ -62,10 +68,12 @@ module.exports = {
             template: "./public/index.html"
         }),
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({ filename: `style.css` }),
-        new GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true
-        })
+        new MiniCssExtractPlugin({ filename: `style.css` })
+        // new GenerateSW({
+        //     clientsClaim: true,
+        //     skipWaiting: true
+        // })
+        // pwaPlugin,
+        // workboxPlugin
     ]
 };
